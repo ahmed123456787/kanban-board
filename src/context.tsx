@@ -7,13 +7,14 @@ import {
 } from "react";
 
 export type CardType = {
-  id: number;
+  id: string;
   title: string;
   description: string;
+  containerId: string;
 };
 
 export type ContainerContextType = {
-  id: number;
+  id: string;
   name: string;
   cards: CardType[];
 };
@@ -26,7 +27,6 @@ type ContainerActionType = {
 type CardActionType = {
   type: "ADD_CARD" | "REMOVE_CARD" | "UPDATE_CARD";
   payload: CardType;
-  containerId: number;
 };
 
 export type ActionType = ContainerActionType | CardActionType;
@@ -43,6 +43,7 @@ const containerReducer = (
 ): ContainerContextType[] => {
   switch (action.type) {
     case "ADD_CONTAINER":
+      console.log(action.payload);
       return [...state, action.payload];
 
     case "REMOVE_CONTAINER":
@@ -50,14 +51,14 @@ const containerReducer = (
 
     case "ADD_CARD":
       return state.map((container) =>
-        container.id === action.containerId
+        container.id === action.payload.containerId
           ? { ...container, cards: [...container.cards, action.payload] }
           : container
       );
 
     case "REMOVE_CARD":
       return state.map((container) =>
-        container.id === action.containerId
+        container.id === action.payload.containerId
           ? {
               ...container,
               cards: container.cards.filter(
@@ -69,7 +70,7 @@ const containerReducer = (
 
     case "UPDATE_CARD":
       return state.map((container) =>
-        container.id === action.containerId
+        container.id === action.payload.containerId
           ? {
               ...container,
               cards: container.cards.map((card) =>
