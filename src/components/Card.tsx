@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Grip } from "lucide-react";
 import CardEdit from "./CardEdit";
-import { CardType } from "../context/context";
+import { CardType } from "../global.type";
 
 interface CardProps {
   card: CardType;
@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ card }) => {
   const [showCardDetails, setShowCardDetails] = useState(false);
 
   return (
-    <div className="px-3 py-2 rounded-lg shadow-md flex items-center justify-between">
+    <div className="px-3 py-2 rounded-lg shadow-md flex items-center justify-between ">
       {showCardDetails && (
         <CardEdit setShowCardDetails={setShowCardDetails} card={card} />
       )}

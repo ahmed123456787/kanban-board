@@ -1,7 +1,7 @@
 import { Dispatch, useState } from "react";
-import { ActionType } from "../context/context";
+import { ActionType } from "../global.type";
 import { v4 as uuidv4 } from "uuid";
-import { CardType, ContainerContextType } from "../context/context";
+import { CardType, ContainerContextType } from "../global.type";
 
 type AddProps = {
   addTitle: string;
@@ -21,7 +21,7 @@ const Add = ({
   const [addField, setAddField] = useState("");
 
   const handleAdd = () => {
-    if (!addField.trim()) return; // Prevent adding empty fields
+    if (!addField.trim()) return; // prevent empty add
 
     if (actionType === "ADD_CONTAINER") {
       const payload: ContainerContextType = {
@@ -35,8 +35,8 @@ const Add = ({
       const payload: CardType = {
         id: uuidv4(),
         title: addField,
-        description: "", // Add default description if necessary
-        containerId: containerId, // Replace with a dynamic containerId if needed
+        description: "",
+        containerId: containerId,
       };
 
       addAction({ type: "ADD_CARD", payload });
@@ -47,7 +47,7 @@ const Add = ({
   };
 
   return (
-    <div className="flex flex-col bg-white p-4 rounded-xl  border-2">
+    <div className="flex flex-col bg-white p-4 rounded-xl  border-2 w-1/3">
       <h3 className="text-2xl">{addTitle}</h3>
       <input
         type="text"

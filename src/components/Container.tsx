@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ContainerContextType } from "../context/context";
+import { ContainerContextType } from "../global.type";
 import { useCardContext } from "../context/context";
 import { EllipsisVertical } from "lucide-react";
 import Add from "./Add";

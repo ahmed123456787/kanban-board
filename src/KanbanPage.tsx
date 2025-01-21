@@ -8,6 +8,8 @@ const KanbanPage = () => {
   const { containers, dispatch } = useCardContext();
   const [showAddContainer, setShowAddContainer] = useState(false);
 
+  // Handle the drag and drop reordering of containers
+
   const handleDragEnd = (result: any) => {
     if (!result.destination) return;
 
