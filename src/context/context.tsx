@@ -6,23 +6,27 @@ import {
   useContext,
 } from "react";
 
-export type CardType = {
-  id: string;
-  title: string;
-  description: string;
-  containerId: string;
-};
-
 export type ContainerContextType = {
   id: string;
   name: string;
   cards: CardType[];
 };
 
-type ContainerActionType = {
-  type: "ADD_CONTAINER" | "REMOVE_CONTAINER";
-  payload: ContainerContextType;
+export type CardType = {
+  id: string;
+  title: string;
+  description: string;
+  containerId: string;
 };
+type ContainerActionType =
+  | {
+      type: "ADD_CONTAINER" | "REMOVE_CONTAINER";
+      payload: ContainerContextType;
+    }
+  | {
+      type: "REORDER_CONTAINERS";
+      payload: ContainerContextType[];
+    };
 
 type CardActionType = {
   type: "ADD_CARD" | "REMOVE_CARD" | "UPDATE_CARD";
@@ -36,7 +40,6 @@ type CardContextType = {
   dispatch: Dispatch<ActionType>;
 };
 
-// Reducer Function
 const containerReducer = (
   state: ContainerContextType[],
   action: ActionType
@@ -82,6 +85,9 @@ const containerReducer = (
           : container
       );
 
+    case "REORDER_CONTAINERS":
+      return action.payload;
+
     default:
       return state;
   }
@@ -99,7 +105,6 @@ const CardProvider = ({ children }: { children: ReactNode }) => {
     </CardContext.Provider>
   );
 };
-
 // Custom Hook for Using Context
 const useCardContext = () => {
   const context = useContext(CardContext);

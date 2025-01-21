@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { ContainerContextType } from "../context";
-import { useCardContext } from "../context";
+import { ContainerContextType } from "../context/context";
+import { useCardContext } from "../context/context";
+import { EllipsisVertical } from "lucide-react";
 import Add from "./Add";
 import clsx from "clsx";
 import Card from "./Card";
@@ -10,10 +11,11 @@ interface ContainerProps {
 }
 
 const Container: React.FC<ContainerProps> = ({ container }) => {
-  const { dispatch } = useCardContext();
   const [showEditOptions, setShowEditOptions] = useState(false);
   const [showAddCard, setShowAddCard] = useState(false);
   const [height, setHeight] = useState(44);
+  const { dispatch } = useCardContext();
+
   return (
     <div
       className={clsx(
@@ -22,7 +24,7 @@ const Container: React.FC<ContainerProps> = ({ container }) => {
       )}
     >
       {showAddCard && (
-        <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-30 ">
           <Add
             addTitle="Card"
             addAction={dispatch}
@@ -34,24 +36,11 @@ const Container: React.FC<ContainerProps> = ({ container }) => {
       )}
       <div className="flex justify-between">
         <h3 className="text-lg font-medium">{container.name}</h3>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="lucide lucide-ellipsis-vertical hover:cursor-pointer"
+        <EllipsisVertical
+          className="hover:cursor-pointer"
           onMouseEnter={() => setShowEditOptions(true)}
           onMouseLeave={() => setShowEditOptions(false)}
-        >
-          <circle cx="12" cy="12" r="1" />
-          <circle cx="12" cy="5" r="1" />
-          <circle cx="12" cy="19" r="1" />
-        </svg>
+        />
       </div>
 
       {showEditOptions && (
@@ -82,7 +71,7 @@ const Container: React.FC<ContainerProps> = ({ container }) => {
       <div className="mt-4 flex-grow">
         {container.cards.map((card) => (
           <div key={card.id} className=" bg-white rounded-lg mb-4">
-            <Card card={card} containerId={container.id} />
+            <Card card={card} />
           </div>
         ))}
       </div>

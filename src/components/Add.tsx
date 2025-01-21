@@ -1,7 +1,7 @@
 import { Dispatch, useState } from "react";
-import { ActionType } from "../context";
+import { ActionType } from "../context/context";
 import { v4 as uuidv4 } from "uuid";
-import { CardType, ContainerContextType } from "../context";
+import { CardType, ContainerContextType } from "../context/context";
 
 type AddProps = {
   addTitle: string;
@@ -53,6 +53,7 @@ const Add = ({
         type="text"
         value={addField}
         onChange={(e) => setAddField(e.target.value)}
+        placeholder={`${addTitle}  Title`}
         className="p-2 mt-4 rounded-lg outline-black border-2"
       />
       <button

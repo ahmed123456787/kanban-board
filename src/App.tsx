@@ -1,5 +1,5 @@
 import KanbanPage from "./KanbanPage";
-import { CardProvider } from "./context";
+import { CardProvider } from "./context/context";
 
 function App() {
   return (

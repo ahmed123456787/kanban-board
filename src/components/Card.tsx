@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Grip } from "lucide-react";
 import CardEdit from "./CardEdit";
+import { CardType } from "../context/context";
 
 interface CardProps {
-  card: {
-    id: string;
-    title: string;
-    description?: string;
-  };
+  card: CardType;
 }
 
 const Card: React.FC<CardProps> = ({ card }) => {
@@ -19,7 +16,11 @@ const Card: React.FC<CardProps> = ({ card }) => {
         <CardEdit setShowCardDetails={setShowCardDetails} card={card} />
       )}
       <p className="text-lg">{card.title}</p>
-      <Grip size={24} onClick={() => setShowCardDetails(true)} />
+      <Grip
+        size={24}
+        className="hover:cursor-pointer"
+        onClick={() => setShowCardDetails(true)}
+      />
     </div>
   );
 };
