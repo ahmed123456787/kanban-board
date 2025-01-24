@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useCardContext } from "./context/context";
-import Container from "./components/Container";
-import Add from "./components/Add";
+import { useCardContext } from "../context/context";
+import Container from "../components/Container";
+import Add from "../components/Add";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const KanbanPage = () => {
