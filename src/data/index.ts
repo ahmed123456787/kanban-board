@@ -58,4 +58,4 @@ export const menuItems: MenuItemType[] = [
     icon: Mail,
     link: "/mail",
   },
-];
+] as const;
