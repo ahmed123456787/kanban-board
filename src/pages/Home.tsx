@@ -9,6 +9,9 @@ import {
   Filter,
 } from "lucide-react";
 
+import CardList from "../components/board/CardList";
+import CardBord from "../components/CardBord";
+
 const homeChoices = [
   {
     name: "Board",
@@ -72,6 +75,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="mt-4 flex">
+            <CardBord />
           </div>
         </div>
       </Layout>
