@@ -1,4 +1,5 @@
 import { Card } from "./../../redux/CardsSlice";
+import CardItem from "./CardItem";
 
 interface CardListProps {
   cards: Card[];
@@ -6,15 +7,9 @@ interface CardListProps {
 
 const CardList = ({ cards }: CardListProps) => {
   return (
-    <div className="flex w-full ">
+    <div className="flex flex-col space-y-5 w-full ">
       {cards.map((card) => (
-        <div key={card.id} className="bg-white p-2 m-2 rounded-md shadow-md">
-          <p>{card.title}</p>
-          <p>{card.label.name}</p>
-          <p>{card.levelDifficulty}</p>
-          <p>{card.dueDate.toDateString()}</p>
-          <p className="">{card.comments.length}</p>
-        </div>
+        <CardItem key={card.id} card={card} />
       ))}
     </div>
   );

@@ -9,7 +9,6 @@ import {
   Filter,
 } from "lucide-react";
 
-import CardList from "../components/board/CardList";
 import CardBord from "../components/CardBord";
 
 const homeChoices = [

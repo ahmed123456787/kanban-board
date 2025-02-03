@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export type Card = {
   id: string;
   title: string;
+  owner: string;
   label: {
     name: string;
     color: string;
@@ -10,6 +11,7 @@ export type Card = {
   levelDifficulty: "low" | "medium" | "high";
   dueDate: Date;
   comments: string[];
+  description?: string;
 };
 
 type Board = {
@@ -23,11 +25,25 @@ const initialState: Board[] = [
     cards: [
       {
         id: "1",
-        title: "def",
-        label: { name: "dev", color: "red" },
-        levelDifficulty: "low",
+        title: "Create a new project",
+        owner: "John Doe",
+        label: { name: "DEV", color: "blue" },
+        levelDifficulty: "high",
         dueDate: new Date("2012-12-12"),
         comments: [],
+        description:
+          "This is a description for this card new baby is comming soon hello nigga for this time",
+      },
+      {
+        id: "1",
+        title: "Create a new project",
+        owner: "John Doe",
+        label: { name: "DEV", color: "blue" },
+        levelDifficulty: "high",
+        dueDate: new Date("2012-12-12"),
+        comments: [],
+        description:
+          "This is a description for this card new baby is comming soon hello nigga for this time",
       },
     ],
   },
