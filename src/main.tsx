@@ -5,7 +5,7 @@ import Projects from "./pages/Projects";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-
+import { MantineProvider } from "@mantine/core";
 const root = document.getElementById("root");
 
 if (!root) {
@@ -13,12 +13,14 @@ if (!root) {
 }
 
 ReactDOM.createRoot(root).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-      </Routes>
-    </BrowserRouter>
-  </Provider>
+  <MantineProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+  </MantineProvider>
 );

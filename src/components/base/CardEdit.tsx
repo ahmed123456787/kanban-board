@@ -1,6 +1,6 @@
 import { AppWindow, Trash2, AlignLeft } from "lucide-react";
-import { CardType } from "../global.type";
-import { useCardContext } from "../context/context";
+import { CardType } from "../../global.type";
+import { useCardContext } from "../../context/context";
 
 interface CardEditProps {
   setShowCardDetails: any;

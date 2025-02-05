@@ -14,7 +14,7 @@ export type Card = {
   description?: string;
 };
 
-type Board = {
+export type Board = {
   cards: Card[];
   name: string;
 };
@@ -37,7 +37,7 @@ const initialState: Board[] = [
       {
         id: "1",
         title: "Create a new project",
-        owner: "John Doe",
+        owner: "Said Dando",
         label: { name: "DEV", color: "blue" },
         levelDifficulty: "high",
         dueDate: new Date("2012-12-12"),

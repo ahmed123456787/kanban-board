@@ -42,7 +42,7 @@ const CardBord = () => {
       {/* The add card section */}
       {addCard.selected && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/80">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+          <div className="bg-white p-6 rounded-xl shadow-lg w-1/3">
             <AddCard
               boardName={addCard.name}
               onClose={() => setAddCard({ selected: false, name: "" })}
