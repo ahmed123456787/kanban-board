@@ -1,5 +1,14 @@
-const CustomButton = ({ label }: { label: string }) => {
-  return <button className="btn-primary">{label}</button>;
+type CustomButtonProps = {
+  label: string;
+  onClick: () => void;
+};
+
+const CustomButton = ({ label, onClick }: CustomButtonProps) => {
+  return (
+    <button className="btn-primary" onClick={onClick}>
+      {label}
+    </button>
+  );
 };
 
 export default CustomButton;

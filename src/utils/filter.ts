@@ -1,4 +1,5 @@
 import { Board } from "../redux/CardsSlice";
+import { Label } from "../redux/CardsSlice";
 
 export const getAllMembers = (boards: Board[]) => {
   let members: string[] = [];
@@ -9,4 +10,15 @@ export const getAllMembers = (boards: Board[]) => {
   });
 
   return members;
+};
+
+export const getAllLabels = (boards: Board[]) => {
+  let labels: Label[] = [];
+
+  boards.forEach((elm) => {
+    elm.cards.forEach((card) => {
+      labels.push(card.label);
+    });
+  });
+  return labels;
 };

@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export type Label = {
+  name: string;
+  color: string;
+};
+
 export type Card = {
   id: string;
   title: string;
   owner: string;
-  label: {
-    name: string;
-    color: string;
-  };
+  label: Label;
   levelDifficulty: "low" | "medium" | "high";
   dueDate: Date;
   comments: string[];

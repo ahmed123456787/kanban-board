@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import Date from "../base/Date";
 import Button from "../base/Button";
+import { useState } from "react";
+import LabelAdd from "../base/LabelAdd";
 
 type AddCardProps = {
   boardName: string;
@@ -12,6 +14,8 @@ type AddCardProps = {
 
 const AddCard = ({ boardName, onClose }: AddCardProps) => {
   const members = getAllMembers(useSelector((state: RootState) => state.cards));
+  const [isLabelSelected, setIsLabelSelected] = useState(false);
+  const [isLevelSelected, setIsLevelSelected] = useState(false);
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -38,9 +42,17 @@ const AddCard = ({ boardName, onClose }: AddCardProps) => {
         </div>
 
         {/* Right Side: Buttons */}
-        <div className="flex flex-col space-y-3 items-end">
-          <Button label={"Labels"} />
-          <Button label={"Levels"} />
+        <div className="flex flex-col space-y-3 items-end relative">
+          <Button label={"Labels"} onClick={() => setIsLabelSelected(true)} />
+          <Button
+            label={"Levels"}
+            onClick={() => setIsLevelSelected(!isLevelSelected)}
+          />
+
+          {/* Label Container */}
+          {isLabelSelected && (
+            <LabelAdd setIsLabelSelected={setIsLabelSelected} />
+          )}
         </div>
       </div>
 
