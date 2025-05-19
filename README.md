@@ -9,7 +9,7 @@
 - Add, edit, and delete containers.
 - Add, edit, and delete cards within containers.
 - Responsive design for both desktop and mobile screens.
-- Smooth transitions and user-friendly modals for creating and editing.
+- Smooth transition and user-friendly modals for creating and editing.
 - Context API for managing the state of containers and cards.
 - Organized project structure with reusable components.
 
@@ -17,7 +17,7 @@
 
 ## Screenshots
 
-Here are some screenshots showcasing the Kanban Board application:
+Here are some screenshot showcasing the Kanban Board application:
 
 ![Kanban Board Interface](docs/Screenshot%20from%202025-05-19%2023-15-01.png)
 _Main interface of the Kanban Board showing the task management system_
