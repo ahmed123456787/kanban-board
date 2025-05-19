@@ -2,6 +2,13 @@
 
 **Kanban Board** application built with React, providing an intuitive interface for managing tasks and containers. Users can create, edit, and delete tasks (cards) and containers seamlessly.
 
+## Screenshots
+
+Here are some screenshots of the application in action:
+
+![Kanban Board Overview](./src/assets/kanban.png)
+![Kanban Board Details](./docs/Screenshot%20from%202025-05-19%2023-50-41.png)
+
 ---
 
 ## Features
@@ -18,8 +25,12 @@
 ## Tech Used
 
 - **React**
-- **Context Api**
+- **TypeScript**
+- **Redux** (for state management)
+- **Context API**
 - **Tailwind CSS**
+- **Vite**
+- **Shadcn UI**
 
 ## Getting Started
 
