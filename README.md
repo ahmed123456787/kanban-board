@@ -15,6 +15,15 @@
 
 ---
 
+## Screenshots
+
+Here are some screenshots showcasing the Kanban Board application:
+
+![Kanban Board Interface](docs/Screenshot%20from%202025-05-19%2023-15-01.png)
+_Main interface of the Kanban Board showing the task management system_
+
+---
+
 ## Tech Used
 
 - **React**
